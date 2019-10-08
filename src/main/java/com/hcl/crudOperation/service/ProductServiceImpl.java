@@ -38,15 +38,18 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public String deleteProduct(Long productId) {
+	public Product deleteProduct(Long productId) {
 	Product p=	productRepository.findById(productId).get();
-	if(p!=null)
+	/*if(p!=null)
 	{
 	productRepository.delete(p);
 	return "product Delete Success";
 	}
 	else
 		return "Product Not There";
+	}*/
+    productRepository.delete(p);
+	 return p;
 	}
 
 }
